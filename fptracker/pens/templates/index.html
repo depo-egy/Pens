@@ -1,0 +1,33 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fountain Pen Tracker</title>
+    <meta name = "description" , content =" Tracker of fountain pens and inks">
+    <meta name = "viewport" , content ="width=device-width , initial-scale =1">
+    <!-- CSS Here -->
+    <link rel = "stylesheet"  href= "{% static 'css/normalize.css' %}">
+    <link rel = "stylesheet"  href= "{% static 'css/skeleton.css' %}">
+  </head>
+  <body>
+    <div class = "container">
+      <h2>This is template This is big ben</h2>
+        <div class = "row">
+          <div class = "three columns">
+            <p>this is some text </p>
+            <p>This ia also some text</p>
+            <input type="button" value="button" />
+            <input class="button-primary" type="button" value="button" />
+          </div>
+          <div class = "nine columns">
+            <img src = "{% static 'images/pens.jpg' %}" width=250px , height = 250px>
+          </div>
+        </div>
+    </div>
+
+
+
+  </body>
+</html>
