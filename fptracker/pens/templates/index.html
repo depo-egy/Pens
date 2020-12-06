@@ -13,21 +13,42 @@
   </head>
   <body>
     <div class = "container">
-      <h2>This is template This is big ben</h2>
-        <div class = "row">
-          <div class = "three columns">
-            <p>this is some text </p>
-            <p>This ia also some text</p>
-            <input type="button" value="button" />
-            <input class="button-primary" type="button" value="button" />
-          </div>
-          <div class = "nine columns">
-            <img src = "{% static 'images/pens.jpg' %}" width=250px , height = 250px>
-          </div>
-        </div>
+      <h2>{{page_title}}</h2>
+        
+        <p>Number of pens: {{pen_list|length }}</p>
+        <table class="u-full-width">
+          <thread>
+            <tr>
+              <th>Color</th>
+              <th>Model</th>
+              <th>Brand</th>
+              <th>Nib Size</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thread>
+          <tbody>
+        {% for pen in pen_list%}
+          <tr>
+            <td style="background-color:{{pen.color}};"></td>
+            <td>{{pen.brandName}}</td>
+            <td>{{pen.modelName}}</td>
+            <td>{{pen.nibsSizes}}</td>
+            <td><a href = "{% url 'edit pen' pen.id %}"> Edit</a></td>
+            <td><a href = "{% url 'delete pen' pen.id %}"> Delete</a></td>
+          </tr>
+        {% endfor %}
+        
+          </tbody>
+        </table>
+        <div class = "center">
+          <a href="{% url 'add pen' %}">Add a Pen </a>
+        </div>  
+        
     </div>
 
 
 
   </body>
 </html>
+

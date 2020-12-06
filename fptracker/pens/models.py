@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.forms import ModelForm
+from django.forms.widgets import TextInput
 # Create your models here.
 
 NIBS_SIZES =(
@@ -20,6 +21,14 @@ class Pens(models.Model):
 
     def __str__(self):
         return self.color + " " + self.brandName + " " + self.modelName
-        
+
+
+class PenForm(ModelForm):
+    class Meta:
+        model = Pens
+        fields= '__all__'
+        widgets= {
+            'color' : TextInput(attrs={'type' : 'color'})
+        }
     
     
